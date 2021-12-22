@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- CONTAINER -->
+    <div class="container">
+      <!-- LOGO -->
+      <div class="logo">
+        <a href="index.html"
+          ><img class="img" src="./img/logo.png" alt="logo"
+        /></a>
+      </div>
+      <!-- NUTRTITION VALUE -->
+      <section class="nutrition background">
+        <h2 class="title">YOUR RECOMMENDED DAILY INTAKES:</h2>
+        <article class="value-container">
+          <!-- single value -->
+          <div class="value-single calories">
+            <p class="value-title">Calories</p>
+            <p class="value">1900</p>
+          </div>
+          <!-- single value -->
+          <div class="value-single protein">
+            <p class="value-title">Protein</p>
+            <p class="value value-1">50g</p>
+          </div>
+          <!-- single value -->
+          <div class="value-single carbs">
+            <p class="value-title">Carbs</p>
+            <p class="value value-2">50g</p>
+          </div>
+          <!-- single value -->
+          <div class="value-single fat">
+            <p class="value-title">Fat</p>
+            <p class="value value-3">50g</p>
+          </div>
+        </article>
+      </section>
+      <!-- NAVE -->
+      <nav class="nav">
+        <button class="button btn-1">CLEAR</button>
+        <button class="button btn-2">SAVE</button>
+        <button class="button btn-3">RANDOM</button>
+        <i class="fas fa-cog"></i>
+      </nav>
+      <!-- LIST -->
+      <aside class="list background">
+        <!-- LIST OPTIONS -->
+        <select name="meal-type" id="meal-type">
+          <option>CHOOSE MEAL TYPE</option>
+          <option value="ONE">ONE</option>
+          <option value="TWO">TWO</option>
+          <option value="THREE">THREE</option>
+        </select>
+        <!-- CARDS -->
+        <ul>
+          <!-- single card -->
+          <li class="card-container drag-item" draggable="true">
+            <div class="drag">
+              <i class="fas fa-grip-vertical"></i>
+            </div>
+            <img src="./img/thumb.jpeg" alt="thumbnail" />
+            <div class="content">
+              <h3 class="title">HomeMade Salad</h3>
+              <p class="calories">(250 calories)</p>
+            </div>
+          </li>
+        </ul>
+      </aside>
+      <!-- TABLE -->
+      <section class="table background"></section>
+      <!-- FOOTER -->
+      <footer class="footer">
+        <button id="grocery-btn">CREATE GROCERY LIST</button>
+      </footer>
+    </div>
+  </body>
+</html>

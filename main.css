@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --darkgrey: #565656;
+  --grey: #7e7e7e;
+  --lightgrey: #e5e5e5;
+  --background: #f3f3f3;
+  --orange: #eda332;
+  --blue: #48c0a8;
+  --red: #f25234;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 20px;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: 0.45fr 450px 1.5fr;
+  grid-template-rows: 0.8fr 3fr 0.4fr;
+  grid-template-areas:
+    "logo nutrition nav"
+    "list table table"
+    "footer footer footer";
+}
+/* HELPER */
+.background {
+  background-color: var(--background);
+  border-radius: 19px;
+}
+
+/* LOGO */
+.logo {
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.logo .img {
+}
+/* NUTRITION */
+.nutrition {
+  grid-area: nutrition;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 75%;
+  margin: auto 0;
+}
+.nutrition .title {
+  color: var(--darkgrey);
+  margin-top: 15px;
+  margin-left: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.value-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 15px;
+}
+.value-single {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--white);
+  text-align: center;
+  border-radius: 15px;
+  width: 100px;
+  height: 60px;
+}
+.value-title {
+  color: var(--darkgrey);
+  font-weight: 300;
+}
+.value-1 {
+  background: var(--orange);
+}
+.value-2 {
+  background: var(--blue);
+}
+.value-3 {
+  background: var(--red);
+}
+.value-1,
+.value-2,
+.value-3 {
+  color: var(--white);
+  border-radius: 5px;
+  width: 50%;
+  margin: 5px auto 5px auto;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+/* NAV */
+.nav {
+  grid-area: nav;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-right: 2rem;
+}
+.nav i {
+  font-size: 2.5rem;
+  color: var(--black);
+  cursor: pointer;
+}
+.nav button {
+  color: var(--black);
+  background: var(--white);
+  width: 100px;
+  height: 40px;
+  margin: 7px;
+  border-radius: 7px;
+  border: 2px solid var(--black);
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.btn-1:hover {
+  color: var(--white);
+  background-color: var(--orange);
+  border: var(--white);
+}
+.btn-2:hover {
+  color: var(--white);
+  background-color: var(--blue);
+  border: var(--white);
+}
+.btn-3:hover {
+  color: var(--white);
+  background-color: var(--red);
+  border: var(--white);
+}
+/* LIST*/
+.list {
+  grid-area: list;
+  display: flex;
+  flex-direction: column;
+}
+#meal-type {
+  background-color: #f9f9f9;
+  color: var(--grey);
+  border: 1.5px solid rgba(197, 197, 197, 0.527);
+  border-radius: 18px;
+  margin: 1.5rem 1rem 0.5rem 1rem;
+  height: 40px;
+  font-size: 0.7rem;
+  font-weight: 200;
+  box-shadow: 0px 0px 0.5px 1px rgba(0, 0, 0, 0.082);
+}
+/* CARD */
+.card-container {
+  background-color: var(--white);
+  display: flex;
+  height: 100px;
+  margin: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.123);
+}
+.card-container img {
+  width: 60%;
+  background-position: center;
+  object-fit: cover;
+}
+.drag {
+  width: 35px;
+  background-color: var(--lightgrey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.drag i {
+  color: rgb(161, 161, 161);
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.content .title {
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+.content .calories {
+  color: var(--blue);
+  font-size: 0.6rem;
+  font-weight: 300;
+  margin-top: 0.3rem;
+}
+/* FOOTER */
+.footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+#grocery-btn {
+  width: 200px;
+  height: 40px;
+  margin-right: 2rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--red);
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+#grocery-btn:hover {
+  box-shadow: 0px 0px 13px 2.5px rgba(242, 81, 52, 0.76);
+  background: #db3c20;
+}
+/* TABLE */
+.table {
+  grid-area: table;
+}
