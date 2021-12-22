@@ -29,9 +29,38 @@ lists.forEach((list) => {
   list.addEventListener("dragover", function (e) {
     e.preventDefault();
   });
+  // Fire event for enter
+  list.addEventListener("dragenter", function (e) {
+    e.preventDefault();
+    this.style.background = "var(--lightblue)";
+    this.style.border = "2px dashed var(--darkgrey)";
+    this.style.borderRadius = "5px";
+  });
+  // Fire event for leave
+  list.addEventListener("dragleave", function (e) {
+    this.style.border = "";
+    this.style.background = "";
+  });
   // Fire event for drop
   list.addEventListener("drop", function (e) {
     console.log("drop");
     this.append(draggedItem);
+    this.style.border = "";
+    this.style.background = "";
+  });
+});
+
+//
+//
+//
+//
+//
+
+const settingBtn = document.querySelector("#setting-btn");
+const buttons = document.querySelectorAll(".nav .button");
+
+buttons.forEach((button) => {
+  settingBtn.addEventListener("click", (e) => {
+    button.classList.toggle("show");
   });
 });

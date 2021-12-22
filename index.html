@@ -35,7 +35,7 @@
           <!-- single value -->
           <div class="value-single calories">
             <p class="value-title">Calories</p>
-            <p class="value">1900</p>
+            <p class="value odometer">1991</p>
           </div>
           <!-- single value -->
           <div class="value-single protein">
@@ -56,10 +56,10 @@
       </section>
       <!-- NAVE -->
       <nav class="nav">
-        <button class="button btn-1">CLEAR</button>
+        <button class="button btn-1">CLEAR</button> 
         <button class="button btn-2">SAVE</button>
         <button class="button btn-3">RANDOM</button>
-        <i class="fas fa-cog"></i>
+        <i id="setting-btn" class="fas fa-cog"></i>
       </nav>
       <!-- Selection -->
       <aside class="selection background">
@@ -73,11 +73,11 @@
         <!-- Lists -->
         <ul class="list">
           <!-- single  -->
-          <li class="list-item " draggable="true">
+          <li class="list-item" draggable="true">
             <div class="drag-icon">
               <i class="fas fa-grip-vertical"></i>
             </div>
-            <img src="./img/thumb.jpeg" alt="thumbnail" />
+            <img src="./img/thumb.jpeg" draggable="false" alt="thumbnail" />
             <div class="content">
               <h3 class="title">HomeMade Salad</h3>
               <p class="calories">(250 calories)</p>
@@ -87,25 +87,25 @@
       </aside>
       <!-- TABLE -->
       <section class="table background">
-        <ul class="list list-1">
-          <!-- single  -->
-          <li class="list-item " draggable="true">
-            <div class="drag-icon ">
-              <i class="fas fa-grip-vertical"></i>
-            </div>
-            <img src="./img/thumb.jpeg" alt="thumbnail" />
-            <div class="content">
-              <h3 class="title">HomeMade Salad</h3>
-              <p class="calories">(250 calories)</p>
-            </div>
-          </li>
-          <li class="list-item" draggable="true">1</li>
-          <li class="list-item" draggable="true">2</li>
-          <li class="list-item" draggable="true">3</li>
+        <article class="days">
+          <div class="day"><h3>MON</h3></div>
+          <div class="day"><h3>TUE</h3></div>
+          <div class="day"><h3>WED</h3></div>
+          <div class="day"><h3>THU</h3></div>
+          <div class="day"><h3>FRI</h3></div>
+          <div class="day"><h3>SAT</h3></div>
+          <div class="day"><h3>SUN</h3></div>
+        </article>
+        <ul class="lists">
+          <ul class="list list-1"></ul>
+          <ul class="list list-2"></ul>
+          <ul class="list list-3"></ul>
+          <ul class="list list-4"></ul>
+          <ul class="list list-5"></ul>
+          <ul class="list list-6"></ul>
+          <ul class="list list-7"></ul>
         </ul>
-        <ul class="list list-2"></ul>
       </section>
-
       <!-- FOOTER -->
       <footer class="footer">
         <button id="grocery-btn">CREATE GROCERY LIST</button>
@@ -114,4 +114,3 @@
     <script src="main.js"></script>
   </body>
 </html>
-1

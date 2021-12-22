@@ -11,7 +11,8 @@
   --lightgrey: #e5e5e5;
   --background: #f3f3f3;
   --orange: #eda332;
-  --blue: #48c0a8;
+  --blue: #46c1aa;
+  --lightblue: #00000009;
   --red: #f25234;
 }
 body {
@@ -20,10 +21,10 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
-  padding: 0 20px;
+  padding: 0 30px;
   display: grid;
   grid-column-gap: 20px;
-  grid-template-columns: 0.45fr 450px 1.5fr;
+  grid-template-columns: 200px 550px 1.5fr;
   grid-template-rows: 0.8fr 3fr 0.4fr;
   grid-template-areas:
     "logo nutrition nav"
@@ -112,17 +113,22 @@ body {
   font-size: 2.5rem;
   color: var(--black);
   cursor: pointer;
+  margin-left: 8px;
 }
 .nav button {
   color: var(--black);
   background: var(--white);
   width: 100px;
   height: 40px;
-  margin: 7px;
+  margin: 10px;
   border-radius: 7px;
   border: 2px solid var(--black);
   cursor: pointer;
   transition: all 0.2s linear;
+  opacity: 0;
+}
+.nav button.show{
+  opacity: 1;
 }
 .btn-1:hover {
   color: var(--white);
@@ -144,6 +150,8 @@ body {
   grid-area: list;
   display: flex;
   flex-direction: column;
+
+  overflow-x: scroll;
 }
 #meal-type {
   background-color: #f9f9f9;
@@ -157,17 +165,24 @@ body {
   box-shadow: 0px 0px 0.5px 1px rgba(0, 0, 0, 0.082);
 }
 /* CARD */
+.list {
+  height: 100%;
+}
 .list-item {
   background-color: var(--white);
   display: flex;
-  height: 100px;
+  height: 90px;
   margin: 1rem;
   border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.123);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.192);
+  transition: 0.1s all ease-in;
 }
-.card-container img {
-  width: 60%;
+.list-item:hover {
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.329);
+}
+.list-item img {
+  width: 70%;
   background-position: center;
   object-fit: cover;
 }
@@ -181,17 +196,18 @@ body {
   border-bottom-left-radius: 6px;
 }
 .drag-icon i {
-  color: rgb(161, 161, 161);
+  color: rgb(133, 133, 133);
 }
 .content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  background-color: var(--lightgrey);
 }
 .content .title {
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 .content .calories {
   color: var(--blue);
@@ -199,6 +215,65 @@ body {
   font-weight: 300;
   margin-top: 0.3rem;
 }
+/* TABLE */
+.table {
+  width: 100%;
+  grid-area: table;
+}
+.lists {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(3, 25%);
+  text-align: center;
+  grid-template-areas:
+    "mon tues wedn thurs fri sat sun"
+    "mon tues wedn thurs fri sat sun"
+    "mon tues wedn thurs fri sat sun";
+}
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-areas: "mon tues wedn thurs fri sat sun";
+  color: var(--orange);
+  margin: 20px 0;
+  justify-items: center;
+}
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: var(--white);
+  width: 100px;
+  height: 40px;
+}
+.day h3 {
+  font-weight: 300;
+  font-size: 1rem;
+}
+.list-1 {
+  grid-area: mon;
+}
+.list-2 {
+  grid-area: tues;
+}
+.list-3 {
+  grid-area: wedn;
+}
+.list-4 {
+  grid-area: thurs;
+}
+.list-5 {
+  grid-area: fri;
+}
+.list-6 {
+  grid-area: sat;
+}
+.list-7 {
+  grid-area: sun;
+}
+
 /* FOOTER */
 .footer {
   grid-area: footer;
@@ -221,20 +296,3 @@ body {
   box-shadow: 0px 0px 13px 2.5px rgba(242, 81, 52, 0.76);
   background: #db3c20;
 }
-/* TABLE */
-.table {
-  grid-area: table;
-  display: flex;
-  flex-direction: row;
-}
-.table .list-1 {
-  background: lightblue;
-  width: 200px;
-  height: 100%;
-}
-.table .list-2 {
-  background: rgb(218, 230, 173);
-  width: 200px;
-  height: 100%;
-}
-
