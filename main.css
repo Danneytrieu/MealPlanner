@@ -157,7 +157,7 @@ body {
   box-shadow: 0px 0px 0.5px 1px rgba(0, 0, 0, 0.082);
 }
 /* CARD */
-.card-container {
+.list-item {
   background-color: var(--white);
   display: flex;
   height: 100px;
@@ -171,7 +171,7 @@ body {
   background-position: center;
   object-fit: cover;
 }
-.drag {
+.drag-icon {
   width: 35px;
   background-color: var(--lightgrey);
   display: flex;
@@ -180,7 +180,7 @@ body {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
-.drag i {
+.drag-icon i {
   color: rgb(161, 161, 161);
 }
 .content {
@@ -229,12 +229,12 @@ body {
 }
 .table .list-1 {
   background: lightblue;
-  width: 150px;
+  width: 200px;
   height: 100%;
 }
 .table .list-2 {
   background: rgb(218, 230, 173);
-  width: 150px;
+  width: 200px;
   height: 100%;
 }
 

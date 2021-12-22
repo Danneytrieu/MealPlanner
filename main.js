@@ -3,46 +3,35 @@ const lists = document.querySelectorAll(".list");
 
 let draggedItem = null;
 
-// Loop through each item
+// Loop through each dragable item
 listItems.forEach((item) => {
-  // Fire event for drag start 
+  // Fire event for drag start
   item.addEventListener("dragstart", function () {
     draggedItem = item;
-    // Add timeout to keep the drag visible while being drag
+    // Add timeout to keep the item visible until the event is complete
     setTimeout(function () {
       item.style.display = "none";
     }, 0);
   });
-
+  // Fire event for drag end
   item.addEventListener("dragend", function () {
     setTimeout(function () {
-      draggedItem.style.display = "block";
+      // Once completed, turn item back into flex
+      draggedItem.style.display = "flex";
       draggedItem = null;
     }, 0);
   });
 });
 
-//
-
-for (let j = 0; j < lists.length; j++) {
-  const list = lists[j];
-
+// Loop through each column
+lists.forEach((list) => {
+  // Fire event for dragover and prevent page reload
   list.addEventListener("dragover", function (e) {
     e.preventDefault();
   });
-
-  list.addEventListener("dragenter", function (e) {
-    e.preventDefault();
-    this.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
-  });
-
-  list.addEventListener("dragleave", function (e) {
-    this.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
-  });
-
+  // Fire event for drop
   list.addEventListener("drop", function (e) {
     console.log("drop");
     this.append(draggedItem);
-    this.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
   });
-}
+});
