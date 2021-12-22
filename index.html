@@ -61,8 +61,8 @@
         <button class="button btn-3">RANDOM</button>
         <i class="fas fa-cog"></i>
       </nav>
-      <!-- LIST -->
-      <aside class="list background">
+      <!-- Selection -->
+      <aside class="selection background">
         <!-- LIST OPTIONS -->
         <select name="meal-type" id="meal-type">
           <option>CHOOSE MEAL TYPE</option>
@@ -71,9 +71,9 @@
           <option value="THREE">THREE</option>
         </select>
         <!-- CARDS -->
-        <ul>
+        <ul class="list">
           <!-- single card -->
-          <li class="card-container drag-item" draggable="true">
+          <li class="list-item card-container drag-item" draggable="true">
             <div class="drag">
               <i class="fas fa-grip-vertical"></i>
             </div>
@@ -86,11 +86,22 @@
         </ul>
       </aside>
       <!-- TABLE -->
-      <section class="table background"></section>
+      <section class="table background">
+        <ul class="list list-1">
+          <!-- single card -->
+          <li class="list-item card-container drag-item" draggable="true">1</li>
+          <li class="list-item card-container drag-item" draggable="true">2</li>
+          <li class="list-item card-container drag-item" draggable="true">3</li>
+        </ul>
+        <ul class="list list-2"></ul>
+      </section>
+
       <!-- FOOTER -->
       <footer class="footer">
         <button id="grocery-btn">CREATE GROCERY LIST</button>
       </footer>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>
+1

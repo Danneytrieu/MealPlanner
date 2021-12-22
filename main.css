@@ -140,7 +140,7 @@ body {
   border: var(--white);
 }
 /* LIST*/
-.list {
+.selection {
   grid-area: list;
   display: flex;
   flex-direction: column;
@@ -224,4 +224,17 @@ body {
 /* TABLE */
 .table {
   grid-area: table;
+  display: flex;
+  flex-direction: row;
 }
+.table .list-1 {
+  background: lightblue;
+  width: 150px;
+  height: 100%;
+}
+.table .list-2 {
+  background: rgb(218, 230, 173);
+  width: 150px;
+  height: 100%;
+}
+
