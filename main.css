@@ -109,11 +109,15 @@ body {
   justify-content: end;
   margin-right: 2rem;
 }
-.nav i {
+#setting-btn {
   font-size: 2.5rem;
-  color: var(--black);
+  color: var(--darkgrey);
   cursor: pointer;
   margin-left: 8px;
+    transition: all 0.2s linear;
+}
+#setting-btn :hover{
+  color: var(--black);
 }
 .nav button {
   color: var(--black);
@@ -150,7 +154,6 @@ body {
   grid-area: list;
   display: flex;
   flex-direction: column;
-
   overflow-x: scroll;
 }
 #meal-type {

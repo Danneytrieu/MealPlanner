@@ -1,3 +1,9 @@
+//
+//
+//
+//
+//
+// FUNCTION: Dragable function
 const listItems = document.querySelectorAll(".list-item");
 const lists = document.querySelectorAll(".list");
 
@@ -22,7 +28,6 @@ listItems.forEach((item) => {
     }, 0);
   });
 });
-
 // Loop through each column
 lists.forEach((list) => {
   // Fire event for dragover and prevent page reload
@@ -55,12 +60,36 @@ lists.forEach((list) => {
 //
 //
 //
-
+// FUNCTION: Hide/Show buttons
 const settingBtn = document.querySelector("#setting-btn");
 const buttons = document.querySelectorAll(".nav .button");
-
+// Toggle show classlist to all setting's buttons
 buttons.forEach((button) => {
   settingBtn.addEventListener("click", (e) => {
     button.classList.toggle("show");
   });
 });
+
+//
+//
+//
+//
+//
+//
+// FUNCTION: API
+import FetchWrapper from "./fetch-wrapper.js";
+const items = document.querySelectorAll(".list-item");
+const images = document.querySelectorAll(".image");
+const names = document.querySelectorAll(".title");
+const calories = document.querySelectorAll(".calories");
+
+const key = "?apiKey=93d3b9134b1d4c44ae5f9dd1b9800b0d";
+const API = new FetchWrapper("https://api.spoonacular.com/");
+const randomMeal = async () => {
+  const data = await API.get(
+    //endpoint details: https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients
+    //Todo: inject user's info: calories, carbs, protein, fat
+    `recipes/findByNutrients${key}&?maxCalories=500&minCarbs=20&minProtein=20&minFat=20&number=21`
+  );
+  const { calories, carbs, fat, protein, image, title } = data[0];
+};
