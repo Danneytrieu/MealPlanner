@@ -6,9 +6,8 @@
 // FUNCTION: Dragable function
 const listItems = document.querySelectorAll(".list-item");
 const lists = document.querySelectorAll(".list");
-
+//
 let draggedItem = null;
-
 // Loop through each dragable item
 listItems.forEach((item) => {
   // Fire event for drag start
@@ -54,7 +53,6 @@ lists.forEach((list) => {
     this.style.background = "";
   });
 });
-
 //
 //
 //
@@ -69,27 +67,91 @@ buttons.forEach((button) => {
     button.classList.toggle("show");
   });
 });
-
 //
 //
 //
 //
 //
 //
-// FUNCTION: API
+// FUNCTION: Trash button
+const trashBtns = document.querySelectorAll("#trash");
+// lopp through all trash btns and remove grandparent element
+trashBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.parentElement.parentElement.remove();
+  });
+});
+//
+//
+//
+//
+//
+//
+// FUNCTION: API for item card
 import FetchWrapper from "./fetch-wrapper.js";
-const items = document.querySelectorAll(".list-item");
-const images = document.querySelectorAll(".image");
-const names = document.querySelectorAll(".title");
-const calories = document.querySelectorAll(".calories");
-
+const Cards = document.querySelector(".list-item");
+const titleHtml = document.querySelector(".item-title");
+const caloriesHtml = document.querySelector(".item-calories");
+const proteinHtml = document.querySelector(".item-protein");
+const carbsHtml = document.querySelector(".item-carbs");
+const fatHtml = document.querySelector(".item-fat");
+// Get random meals
 const key = "?apiKey=93d3b9134b1d4c44ae5f9dd1b9800b0d";
 const API = new FetchWrapper("https://api.spoonacular.com/");
+//
 const randomMeal = async () => {
-  const data = await API.get(
+  const datas = await API.get(
+    //return 31 meals | 21 meals display on calendar | 10 meals display on selection list
     //endpoint details: https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients
-    //Todo: inject user's info: calories, carbs, protein, fat
-    `recipes/findByNutrients${key}&?maxCalories=500&minCarbs=20&minProtein=20&minFat=20&number=21`
+    `recipes/findByNutrients${key}&?maxCalories=500&minCarbs=20&minProtein=20&minFat=20&number=31`
   );
-  const { calories, carbs, fat, protein, image, title } = data[0];
+  //Todo: inject user's info: image, title, calories, carbs, protein, fat
+  console.log(datas);
+  // datas.forEach(async (data) => {
+  //   //Deconstucted keys
+  //   console.log(data)
+  //   // const { id, calories, carbs, fat, protein, image, title } = await data;
+
+  //   document.querySelectorAll(".item-img").src = image;
+  //   // console.log(image)
+
+  //   // titleHtml.textContent = title;
+  //   // caloriesHtml.textContent = `(${calories} cal)`;
+  //   // proteinHtml.textContent = `Protein: ${protein}`;
+  //   // carbsHtml.textContent = `Carbs: ${carbs}`;
+  //   // fatHtml.textContent = `Fat: ${fat}`;
+  // });
 };
+// randomMeal();
+
+// Loop through each cards item to insert html
+listItems.forEach((listItem) => {
+  listItem.insertAdjacentHTML(
+    "beforeend",
+    // replace contents with api contents
+    ` <div class="drag-icon">
+        <i id="drag" class="fas fa-grip-vertical"></i>
+        <i id="trash" class="far fa-trash-alt"></i>
+      </div>
+      <div class="img-wrapper">
+        <button draggable="false" class="item-info">
+          <a draggable="false" href="#">VIEW</a>
+        </button>
+        <img
+          class="item-img"
+          src="./img/thumb.jpeg"
+          draggable="false"
+          alt="thumbnail"
+        />
+      </div>
+      <article class="content-front">
+        <h3 class="item-title">Home Made Salad</h3>
+        <p class="item-calories">(250 cal)</p>
+      </article>
+      <article class="content-back">
+        <p class="item-protein">Protein: 25g</p>
+        <p class="item-carbs">Carbs: 25g</p>
+        <p class="item-fat">Fat: 25g</p>
+      </article>`
+  );
+});

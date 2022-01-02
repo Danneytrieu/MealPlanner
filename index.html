@@ -74,23 +74,48 @@
         </select>
         <!-- Lists -->
         <ul class="list">
-          <!-- single  -->
+          <!-- single card  -->
           <li class="list-item" draggable="true">
-            <div class="drag-icon">
-              <i class="fas fa-grip-vertical"></i>
+            <!-- <div class="drag-icon">
+              <i id="drag" class="fas fa-grip-vertical"></i>
+              <i id="trash" class="far fa-trash-alt"></i>
             </div>
-            <img
-              class="image"
-              src="./img/thumb.jpeg"
-              draggable="false"
-              alt="thumbnail"
-            />
-            <div class="content">
-              <h3 class="title">HomeMade Salad</h3>
-              <p class="calories">(250 calories)</p>
+            <div class="img-wrapper">
+              <button draggable="false" class="item-info">
+                <a draggable="false" href="#">VIEW</a>
+              </button>
+              <img
+                class="item-img"
+                src="./img/thumb.jpeg"
+                draggable="false"
+                alt="thumbnail"
+              />
             </div>
+            <article class="content-front">
+              <h3 class="item-title">Home Made Salad</h3>
+              <p class="item-calories">(250 cal)</p>
+            </article>
+            <article class="content-back">
+              <p class="item-protein">Protein: 25g</p>
+              <p class="item-carbs">Carbs: 25g</p>
+              <p class="item-fat">Fat: 25g</p>
+            </article> -->
           </li>
-          <!-- end single  -->
+          <!-- end single card  -->
+        <!-- Lists -->
+        <ul class="list">
+          <!-- single card  -->
+          <li class="list-item" draggable="true">
+
+          </li>
+          <!-- end single card  -->
+        <!-- Lists -->
+        <ul class="list">
+          <!-- single card  -->
+          <li class="list-item" draggable="true">
+            
+          </li>
+          <!-- end single card  -->
         </ul>
       </aside>
       <!-- TABLE -->
@@ -105,13 +130,13 @@
           <div class="day"><h3>SUN</h3></div>
         </article>
         <ul class="lists">
-          <ul class="list list-1"></ul>
-          <ul class="list list-2"></ul>
-          <ul class="list list-3"></ul>
-          <ul class="list list-4"></ul>
-          <ul class="list list-5"></ul>
-          <ul class="list list-6"></ul>
-          <ul class="list list-7"></ul>
+          <ul class="list table-list list-1"></ul>
+          <ul class="list table-list list-2"></ul>
+          <ul class="list table-list list-3"></ul>
+          <ul class="list table-list list-4"></ul>
+          <ul class="list table-list list-5"></ul>
+          <ul class="list table-list list-6"></ul>
+          <ul class="list table-list list-7"></ul>
         </ul>
       </section>
       <!-- FOOTER -->
@@ -119,6 +144,6 @@
         <button id="grocery-btn">CREATE GROCERY LIST</button>
       </footer>
     </div>
-    <script type="module" src="main.js" ></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
