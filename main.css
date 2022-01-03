@@ -213,6 +213,7 @@ body {
   color: var(--white);
   border: 1.3px solid var(--white);
   border-radius: 1px;
+  
 }
 .item-img {
   width: auto;
@@ -244,6 +245,7 @@ body {
   color: var(--orange);
   display: none;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .list-item:hover #trash {
@@ -256,6 +258,8 @@ body {
 
   display: none;
   font-size: 0.2rem;
+    color: var(--orange);
+
 }
 .list-item:hover .content-back {
   /* card color */
@@ -295,6 +299,9 @@ body {
   font-size: 0.6rem;
   font-weight: 300;
   margin-top: 0.3rem;
+}
+.item-id{
+  display: none;
 }
 /* TABLE */
 .table {

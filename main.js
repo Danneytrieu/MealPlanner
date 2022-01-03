@@ -4,19 +4,20 @@
 //
 //
 //
-// FUNCTION: API for item card
+// FUNCTION: API and display data on html
 import FetchWrapper from "./fetch-wrapper.js";
-const key = "?apiKey=9cb20095529e4d41a996938e730404a6";
-//9cb20095529e4d41a996938e730404a6 danneytrieuwork
-//93d3b9134b1d4c44ae5f9dd1b9800b0d danneytrieu
+const key = "?apiKey=93d3b9134b1d4c44ae5f9dd1b9800b0d" + "&";
+//main key 93d3b9134b1d4c44ae5f9dd1b9800b0d danneytrieu
+//backup key 9cb20095529e4d41a996938e730404a6 danneytrieuwork
 const API = new FetchWrapper("https://api.spoonacular.com/");
-const randomMeal = async () => {
+const generateMeals = async () => {
   const datas = await API.get(
     //endpoint details: https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients
-    `recipes/findByNutrients${key}&?maxCalories=500&minCarbs=20&minProtein=20&minFat=20&number=31`
+    //this endpoint allow to collect datas base on macro nutrients value
+    `recipes/findByNutrients${key}?maxCalories=500&minCarbs=20&minProtein=20&minFat=20&number=31`
   );
   let card = "";
-  //Todo: inject user's info: image, title, calories, carbs, protein, fat
+  //inject user's info: id (use to retrieve detail), image, title, calories, carbs, protein, fat
   datas.map((data) => {
     card += `
           <!-- single card  -->
@@ -45,65 +46,84 @@ const randomMeal = async () => {
               <p class="item-carbs">Carbs: ${data.carbs}</p>
               <p class="item-fat">Fat: ${data.fat}</p>
             </article>
+            <div class="item-id">${data.id}</div>
           </li>
           <!-- end single card  -->`;
   });
   document.querySelector("#list").innerHTML = card;
+  //
+  //
+  //
+  //
+  //
+  // FUNCTION: Trash button
+  const trashBtns = document.querySelectorAll("#trash");
+  // lopp through all trash btns and remove grandparent element
+  trashBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.parentElement.parentElement.remove();
+    });
+  });
+  //
+  //
+  //
+  //
+  //
+
+  // FUNCTION: Dragable function
+  const listItems = document.querySelectorAll(".list-item");
+  const lists = document.querySelectorAll("#list");
+  //
+  let draggedItem = null;
+  // Loop through each dragable item
+  listItems.forEach((item) => {
+    // Fire event for drag start
+    item.addEventListener("dragstart", function () {
+      draggedItem = item;
+      // Add timeout to keep the item visible until the event is complete
+      setTimeout(function () {
+        item.style.display = "none";
+      }, 0);
+    });
+    // Fire event for drag end
+    item.addEventListener("dragend", function () {
+      setTimeout(function () {
+        // Once completed, turn item back into flex
+        draggedItem.style.display = "flex";
+        draggedItem = null;
+      }, 0);
+    });
+  });
+  // Loop through each column
+  lists.forEach((list) => {
+    // Fire event for dragover and prevent page reload
+    list.addEventListener("dragover", function (e) {
+      e.preventDefault();
+    });
+    // Fire event for enter
+    list.addEventListener("dragenter", function (e) {
+      e.preventDefault();
+      this.style.background = "var(--lightblue)";
+      this.style.border = "2px dotted var(--darkgrey)";
+      this.style.borderRadius = "5px";
+    });
+    // Fire event for leave
+    list.addEventListener("dragleave", function (e) {
+      this.style.border = "";
+      this.style.background = "";
+    });
+    // Fire event for drop
+    list.addEventListener("drop", function (e) {
+      this.append(draggedItem);
+      this.style.border = "";
+      this.style.background = "";
+    });
+  });
+  //
 };
-randomMeal(); 
+// TODO: generateMeals();
 //
 //
-//
-//
-// FUNCTION: Dragable function
-const listItems = document.querySelectorAll(".list-item");
-const lists = document.querySelectorAll("#list");
-//
-let draggedItem = null;
-// Loop through each dragable item
-listItems.forEach((item) => {
-  // Fire event for drag start
-  item.addEventListener("dragstart", function () {
-    draggedItem = item;
-    // Add timeout to keep the item visible until the event is complete
-    setTimeout(function () {
-      item.style.display = "none";
-    }, 0);
-  });
-  // Fire event for drag end
-  item.addEventListener("dragend", function () {
-    setTimeout(function () {
-      // Once completed, turn item back into flex
-      draggedItem.style.display = "flex";
-      draggedItem = null;
-    }, 0);
-  });
-});
-// Loop through each column
-lists.forEach((list) => {
-  // Fire event for dragover and prevent page reload
-  list.addEventListener("dragover", function (e) {
-    e.preventDefault();
-  });
-  // Fire event for enter
-  list.addEventListener("dragenter", function (e) {
-    e.preventDefault();
-    this.style.background = "var(--lightblue)";
-    this.style.border = "2px dashed var(--darkgrey)";
-    this.style.borderRadius = "5px";
-  });
-  // Fire event for leave
-  list.addEventListener("dragleave", function (e) {
-    this.style.border = "";
-    this.style.background = "";
-  });
-  // Fire event for drop
-  list.addEventListener("drop", function (e) {
-    this.append(draggedItem);
-    this.style.border = "";
-    this.style.background = "";
-  });
-});
 //
 //
 //
@@ -125,11 +145,3 @@ buttons.forEach((button) => {
 //
 //
 //
-// FUNCTION: Trash button
-const trashBtns = document.querySelectorAll("#trash");
-// lopp through all trash btns and remove grandparent element
-trashBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.parentElement.parentElement.remove();
-  });
-});
