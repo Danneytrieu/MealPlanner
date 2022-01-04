@@ -63,7 +63,7 @@
           <i class="fas fa-cog"></i>
         </div>
       </nav>
-      <!-- Selection -->
+      <!-- SELECTIOM -->
       <aside class="selection background">
         <!-- OPTIONS -->
         <select class="custom-select" name="meal-type" id="meal-type">
@@ -73,37 +73,7 @@
           <option value="THREE">THREE</option>
         </select>
         <!-- Lists -->
-        <ul id="list">
-          <!-- single card  -->
-          <li class="list-item" draggable="true">
-            <div class="drag-icon">
-              <i id="drag" class="fas fa-grip-vertical"></i>
-              <i id="trash" class="far fa-trash-alt"></i>
-            </div>
-            <div class="img-wrapper">
-              <button draggable="false" class="item-info">
-                <a draggable="false" href="#">VIEW</a>
-              </button>
-              <img
-                class="item-img"
-                src="./img/thumb.jpeg"
-                draggable="false"
-                alt="thumbnail"
-              />
-            </div>
-            <article class="content-front">
-              <h3 class="item-title">Home Made Salad</h3>
-              <p class="item-calories">(250 cal)</p>
-            </article>
-            <article class="content-back">
-              <p class="item-protein">Protein: 25g</p>
-              <p class="item-carbs">Carbs: 25g</p>
-              <p class="item-fat">Fat: 25g</p>
-            </article>
-            <div class="item-id">1</div>
-          </li>
-          <!-- end single card  -->
-        </ul>
+        <ul id="list"></ul>
       </aside>
       <!-- TABLE -->
       <section class="table background">
@@ -117,36 +87,7 @@
           <div class="day"><h3>SUN</h3></div>
         </article>
         <ul class="lists">
-          <ul id="list" class="list-1">
-            <!-- single card  -->
-            <li class="list-item" draggable="true">
-              <div class="drag-icon">
-                <i id="drag" class="fas fa-grip-vertical"></i>
-                <i id="trash" class="far fa-trash-alt"></i>
-              </div>
-              <div class="img-wrapper">
-                <button draggable="false" class="item-info">
-                  <a draggable="false" href="#">VIEW</a>
-                </button>
-                <img
-                  class="item-img"
-                  src="./img/thumb.jpeg"
-                  draggable="false"
-                  alt="thumbnail"
-                />
-              </div>
-              <article class="content-front">
-                <h3 class="item-title">Home Made Salad</h3>
-                <p class="item-calories">(250 cal)</p>
-              </article>
-              <article class="content-back">
-                <p class="item-protein">Protein: 25g</p>
-                <p class="item-carbs">Carbs: 25g</p>
-                <p class="item-fat">Fat: 25g</p>
-              </article>
-            </li>
-            <!-- end single card  -->
-          </ul>
+          <ul id="list" class="list-1"></ul>
           <ul id="list" class="list-2"></ul>
           <ul id="list" class="list-3"></ul>
           <ul id="list" class="list-4"></ul>
@@ -154,6 +95,13 @@
           <ul id="list" class="list-6"></ul>
           <ul id="list" class="list-7"></ul>
         </ul>
+      </section>
+      <!-- MODAL -->
+      <section class="modal-container">
+        <article class="modal">
+          <div class="modal-content"></div>
+          <button class="modal-close">CLOSE</button>
+        </article>
       </section>
       <!-- FOOTER -->
       <footer class="footer">

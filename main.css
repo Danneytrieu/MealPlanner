@@ -201,20 +201,15 @@ body {
   position: absolute;
   opacity: 0;
   transition: all ease 0.2s;
-  background: none;
-  border: none;
-}
-.item-info a {
-  /* button */
-  text-decoration: none;
   font-weight: 300;
   padding: 5px;
   background-color: rgba(0, 0, 0, 0.397);
   color: var(--white);
   border: 1.3px solid var(--white);
   border-radius: 1px;
-  
+  cursor: pointer;
 }
+
 .item-img {
   width: auto;
   height: 100%;
@@ -255,11 +250,9 @@ body {
   display: none;
 }
 .content-back {
-
   display: none;
   font-size: 0.2rem;
-    color: var(--orange);
-
+  color: var(--orange);
 }
 .list-item:hover .content-back {
   /* card color */
@@ -300,7 +293,7 @@ body {
   font-weight: 300;
   margin-top: 0.3rem;
 }
-.item-id{
+.item-id {
   display: none;
 }
 /* TABLE */
@@ -383,4 +376,78 @@ body {
 #grocery-btn:hover {
   box-shadow: 0px 0px 13px 2.5px rgba(242, 81, 52, 0.76);
   background: #db3c20;
+}
+
+/* MODAL */
+.modal-container {
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.274);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+}
+.show-hide {
+  pointer-events: auto;
+  opacity: 1;
+}
+.modal {
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  width: 50%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-title {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.modal-type {
+  font-weight: 350;
+  text-transform: capitalize;
+}
+.modal-servings{
+  font-weight: 350;
+}
+.modal-summary {
+  font-weight: 200;
+  line-height: 1.8rem;
+}
+.modal-summary a {
+  text-decoration: none;
+  color: black;
+}
+.modal-close {
+  background-color: var(--white);
+  color: var(--red);
+  border-radius: 5px;
+  border: 1px var(--red) solid;
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.1s all ease;
+}
+.modal-close:hover {
+  background-color: var(--red);
+  color: var(--white);
+
 }
