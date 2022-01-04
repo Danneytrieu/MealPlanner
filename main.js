@@ -88,7 +88,7 @@ const generateMeals = async () => {
   const newParents = document.querySelectorAll(".new-parent");
 
   newParents.forEach((newParent) => {
-    while (newParent.children.length < 3) {
+    while (newParent.children.length <= 3) {
       newParent.appendChild(oldParent.children[0]);
     }
   });

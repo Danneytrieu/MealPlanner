@@ -36,7 +36,12 @@ body {
   background-color: var(--background);
   border-radius: 19px;
 }
-
+.disable-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 /* LOGO */
 .logo {
   grid-area: logo;
@@ -300,34 +305,30 @@ body {
 .table {
   width: 100%;
   grid-area: table;
+  overflow-x: scroll;
 }
 .lists {
   height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(3, 25%);
   text-align: center;
   grid-template-areas:
     "mon tues wedn thurs fri sat sun"
     "mon tues wedn thurs fri sat sun"
     "mon tues wedn thurs fri sat sun";
 }
-.days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-areas: "mon tues wedn thurs fri sat sun";
-  color: var(--orange);
-  margin: 20px 0;
-  justify-items: center;
-}
+
 .day {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   background: var(--white);
+  color: var(--orange);
   width: 100px;
   height: 40px;
+  margin: 2rem auto;
 }
 .day h3 {
   font-weight: 300;
@@ -355,7 +356,7 @@ body {
   grid-area: sun;
 }
 .new-parent .list-item {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 /* FOOTER */
 .footer {
