@@ -1,24 +1,47 @@
-// FUNCTION: Hide/Show buttons
+// FUNCTION: Hide/Show setting buttons
 const settingBtn = document.querySelector("#setting-btn");
 const buttons = document.querySelectorAll(".nav .button");
+const clearBtn = document.querySelector(".btn-1");
+const saveBtn = document.querySelector(".btn-2");
+const randomBtn = document.querySelector(".btn-3");
+const myCanvas = document.querySelector("#canvas");
 // Toggle show classlist to all setting's buttons
 buttons.forEach((button) => {
   settingBtn.addEventListener("click", (e) => {
     button.classList.toggle("show");
   });
 });
-//
+// FIXME:
+// FUNCTION: Download screenshot
+saveBtn.addEventListener("click", (e) => {
+  html2canvas(document.querySelector("#capture"), { allowTaint: true }).then(
+    (canvas) => {
+      const image = canvas
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      const a = document.createElement("a");
+      a.setAttribute("download", "my-image.png");
+      a.setAttribute("href", image);
+      a.click();
+      canvas.remove();
+    }
+  );
+});
+// FUNCTION: Clear table
+
 //
 //
 //
 //
 // FUNCTION: API and display data on html
 import FetchWrapper from "./fetch-wrapper.js";
-const key = "?apiKey=9cb20095529e4d41a996938e730404a6" + "&";
+const key = "?apiKey=98bce4c26d4a425bb4183176fc75629f" + "&";
 //main key ?apiKey=93d3b9134b1d4c44ae5f9dd1b9800b0d danneytrieu
 //backup key ?apiKey=9cb20095529e4d41a996938e730404a6 danneytrieuwork
 //backup key ?apiKey=a41414bac2184fb09f45f9c7fd1a3fc6 jlim
 //backup key ?apiKey=5129b66ccd2e4b24bbf9a50c64043303 phanuyenryna
+//backup key ?apiKey=98bce4c26d4a425bb4183176fc75629f hannah
+
 const API = new FetchWrapper("https://api.spoonacular.com/");
 const generateMeals = async () => {
   const datas = await API.get(
@@ -26,7 +49,6 @@ const generateMeals = async () => {
     //this endpoint allow to collect datas base on macro nutrients value
     `recipes/findByNutrients${key}?maxCalories=300&minCarbs=15&minProtein=15&minFat=15&number=31`
   );
-  console.log(datas);
   let card = "";
   //inject user's info: id (use to retrieve detail), image, title, calories, carbs, protein, fat
   datas.map((data) => {
@@ -60,6 +82,17 @@ const generateMeals = async () => {
           <!-- end single card  -->`;
   });
   document.querySelector("#list").innerHTML = card;
+
+  // FUNCTION: Move items into Weekly table
+  const oldParent = document.querySelector(".old-parent");
+  const newParents = document.querySelectorAll(".new-parent");
+
+  newParents.forEach((newParent) => {
+    while (newParent.children.length < 3) {
+      newParent.appendChild(oldParent.children[0]);
+    }
+  });
+
   //
   //
   //
@@ -127,6 +160,7 @@ const generateMeals = async () => {
       e.currentTarget.style.background = "";
     });
   });
+
   //
   //
   //

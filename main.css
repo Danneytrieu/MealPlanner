@@ -25,7 +25,7 @@ body {
   display: grid;
   grid-column-gap: 20px;
   grid-template-columns: 200px 550px 1.5fr;
-  grid-template-rows: 0.8fr 3fr 0.4fr;
+  grid-template-rows: 0.8fr 2fr 0.4fr;
   grid-template-areas:
     "logo nutrition nav"
     "list table table"
@@ -354,7 +354,9 @@ body {
 .list-7 {
   grid-area: sun;
 }
-
+.new-parent .list-item {
+  margin-bottom: 4rem;
+}
 /* FOOTER */
 .footer {
   grid-area: footer;
@@ -425,7 +427,7 @@ body {
   font-weight: 350;
   text-transform: capitalize;
 }
-.modal-servings{
+.modal-servings {
   font-weight: 350;
 }
 .modal-summary {
@@ -449,5 +451,4 @@ body {
 .modal-close:hover {
   background-color: var(--red);
   color: var(--white);
-
 }
