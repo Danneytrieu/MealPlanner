@@ -20,6 +20,119 @@
     />
   </head>
   <body>
+    <div id="form-container">
+      
+      <!-- slideshow -->
+      <section id="slide-show">
+        <div class="slideshow-container">
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade slide-1">
+            <p id="slide-show-title">Meal planning <br />made easy.</p>
+            <img class="slide-img slide-img-1" src="img/1.png" />
+          </div>
+          <div class="mySlides fade">
+            <img class="slide-img" src="img/2.png" />
+          </div>
+          <div class="mySlides fade">
+            <img class="slide-img" src="img/3.png" />
+          </div>
+          <div class="mySlides fade">
+            <img class="slide-img" src="img/4.png" />
+          </div>
+          <div class="mySlides fade">
+            <img class="slide-img" src="img/5.png" />
+          </div>
+          <div class="mySlides fade">
+            <img class="slide-img" src="img/6.png" />
+          </div>
+        </div>
+      </section>
+      <!-- end slideshow -->
+
+      <form id="form">
+        <h1 id="form-title">“The first wealth is health.” – Ralph Waldo Emerson</h1>
+        <!-- age -->
+        <input
+          class="style"
+          type="text"
+          id="input-age"
+          name="input-age"
+          placeholder="Age"
+          value=""
+        />
+        <!-- gender -->
+        <div class="btn-wrap style">
+          <div class="radio-wrap">
+            <input
+              type="radio"
+              id="input-gender"
+              name="input-gender"
+              value="Male"
+            /><span>Male</span>
+          </div>
+          <div class="radio-wrap">
+            <input
+              type="radio"
+              id="input-gender"
+              name="input-gender"
+              value="Female"
+            /><span>Female</span>
+          </div>
+        </div>
+        <!-- height -->
+        <input
+          class="style"
+          type="text"
+          placeholder="Height (cm)"
+          id="input-height"
+          name="input-height"
+          value=""
+        />
+        <!-- weight -->
+        <input
+          class="style"
+          type="text"
+          placeholder="Weight (kg)"
+          id="input-weight"
+          name="input-weight"
+          value=""
+        />
+        <!-- goal -->
+        <select class="style" name="goal" id="input-goal">
+          <option  value="">Select Your Goal</option>
+          <option value="1%">Maintain Current Weight</option>
+          <option value="20%">Lose Weight</option>
+          <option value="20%">Gain Weight</option>
+        </select>
+
+        <!-- activities -->
+        <select class="style" name="activitities" id="input-active">
+          <option value="">Select Your Active Level</option>
+          <option value="1.2">
+            Sedentary (Little or no exercise)
+          </option>
+          <option value="1.375">
+            Lightly active (Light exercise/sports 3-5 days a week)
+          </option>
+          <option value="1.55">
+            Moderately active (Moderate exercise/sports 3-5 days a week)
+          </option>
+          <option value="1.725">
+            Very active (Hard exercise/sports 6-7 days a week)
+          </option>
+          <option value="1.9">
+            Extra active (Hard exercise/sports 6-7 days a week, plus physical
+            job)
+          </option>
+        </select>
+
+        <!-- submit btn -->
+        <input id="submit-btn" type="submit" value="Continue" />
+        <!-- skip btn -->
+        <button id="skip-btn">Skip</button>
+      </form>
+    </div>
+
     <!-- CONTAINER -->
     <div class="container">
       <!-- LOGO -->
@@ -65,12 +178,12 @@
       <!-- SELECTIOM -->
       <aside class="selection background">
         <!-- OPTIONS -->
-        <select class="custom-select" name="meal-type" id="meal-type">
+        <!-- <select class="custom-select" name="meal-type" id="meal-type">
           <option>CHOOSE MEAL TYPE</option>
           <option value="ONE">ONE</option>
           <option value="TWO">TWO</option>
           <option value="THREE">THREE</option>
-        </select>
+        </select> -->
         <!-- Lists -->
         <ul id="list" class="old-parent"></ul>
         <button class="btn-load-more">LOAD MORE</button>
@@ -110,7 +223,7 @@
       </section>
       <!-- FOOTER -->
       <footer class="footer">
-        <button id="grocery-btn">CREATE GROCERY LIST</button>
+        <!-- <button id="grocery-btn">CREATE GROCERY LIST</button> -->
       </footer>
     </div>
     <script type="module" src="main.js"></script>

@@ -43,7 +43,7 @@ randomBtn.addEventListener("click", () => {
         );
       }
     }
-    moveItemsToNewParents()
+    moveItemsToNewParents();
   });
 });
 
@@ -52,20 +52,29 @@ randomBtn.addEventListener("click", () => {
 //
 // FUNCTION: API and display data on html
 import FetchWrapper from "./fetch-wrapper.js";
-const key = "?apiKey=a41414bac2184fb09f45f9c7fd1a3fc6" + "&";
+const key = "?apiKey=9cb20095529e4d41a996938e730404a6" + "&";
 //main key ?apiKey=93d3b9134b1d4c44ae5f9dd1b9800b0d danneytrieu
 //backup key ?apiKey=98bce4c26d4a425bb4183176fc75629f hannah
 //backup key ?apiKey=9cb20095529e4d41a996938e730404a6 danneytrieuwork
 //backup key ?apiKey=a41414bac2184fb09f45f9c7fd1a3fc6 jlim
 //backup key ?apiKey=5129b66ccd2e4b24bbf9a50c64043303 phanuyenryna
 
+// FIXME:
+const form = document.querySelector("#form");
+const inputKcal = document.querySelector("#input-kcal");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  generateMeals(inputKcal.value);
+});
+
 const API = new FetchWrapper("https://api.spoonacular.com/");
-const generateMeals = async () => {
+const generateMeals = async (kcal) => {
   const datas = await API.get(
     //endpoint details: https://spoonacular.com/food-api/docs#Search-Recipes-by-Nutrients
     //this endpoint allow to collect datas base on macro nutrients value
-    `recipes/findByNutrients${key}?maxCalories=300&minCarbs=15&minProtein=15&minFat=15&number=31`
+    `recipes/findByNutrients${key}?maxCalories=${kcal}&maxCarbs=30&maxProtein=70&maxFat=30&number=31&random=true&limitLicense=true`
   );
+  console.log(kcal);
   let card = "";
   //inject user's info: id (use to retrieve detail), image, title, calories, carbs, protein, fat
   datas.map((data) => {
@@ -206,4 +215,27 @@ const generateMeals = async () => {
     });
   });
 };
-TODO: generateMeals();
+
+// AUTO slideshow
+let slideIndex = 0;
+showSlides();
+function showSlides() {
+  let i;
+  const slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(showSlides, 5000);
+}
+// Skip btn
+const formContainer = document.querySelector("#form-container");
+const skipBtn = document.querySelector("#skip-btn");
+skipBtn.addEventListener("click", () => {
+  formContainer.remove();
+  generateMeals();
+});

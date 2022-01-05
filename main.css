@@ -474,3 +474,132 @@ body {
   background-color: var(--red);
   color: var(--white);
 }
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  background-color: #f8f8f8;
+  width: 100%;
+  height: 100%;
+}
+.slide-img {
+  height: 100%;
+  width: 100%;
+}
+.slide-img-1 {
+  transform: translatey(25%);
+  scale: 1.5;
+}
+#slide-show {
+  background-color: black;
+  height: 100vh;
+  width: 50vw;
+  top: 0;
+  left: 0;
+}
+#slide-show-title {
+  font-size: 5rem;
+  font-weight: 600;
+  color: rgb(70, 70, 70);
+  text-align: left;
+  padding-left: 5rem;
+  transform: translateY(100%);
+  word-wrap:break-word
+}
+.slide-1 {
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* FORM */
+#form-container {
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  text-align: center;
+  opacity: 1;
+}
+#form {
+  margin: 0 auto;
+  background-color: white;
+  height: 100vh;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 10% 10% 4% 10%;
+  ;
+}
+.style {
+  background-color: var(--lightgrey);
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--grey);
+}
+
+#form-container button , #submit-btn{
+  background-color: var(--red);
+  color: white;
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+#submit-btn{
+  margin-top: 20px;
+  background-color: var(--blue);;
+  
+}
+.btn-wrap {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.radio-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: rgba(128, 128, 128, 0.493);
+  font-size: 1.2rem;
+}
+span{
+  margin-left: 0.5rem;
+}
+#form-title{
+  margin-bottom: 10px;
+}
