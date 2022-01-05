@@ -5,42 +5,36 @@ const clearBtn = document.querySelector(".btn-1");
 const saveBtn = document.querySelector(".btn-2");
 const randomBtn = document.querySelector(".btn-3");
 const myCanvas = document.querySelector("#canvas");
+const newParents = document.querySelectorAll(".new-parent");
+const oldParent = document.querySelector(".old-parent");
+
 // Toggle show classlist to all setting's buttons
 buttons.forEach((button) => {
   settingBtn.addEventListener("click", (e) => {
     button.classList.toggle("show");
   });
 });
-// FIXME:
-// FUNCTION: Download screenshot
-saveBtn.addEventListener("click", (e) => {
-  html2canvas(document.querySelector("#capture"), { allowTaint: true }).then(
-    (canvas) => {
-      const image = canvas
-        .toDataURL("image/png")
-        .replace("image/png", "image/octet-stream");
-      const a = document.createElement("a");
-      a.setAttribute("download", "my-image.png");
-      a.setAttribute("href", image);
-      a.click();
-      canvas.remove();
-    }
-  );
-});
 // FUNCTION: Clear table
-
-//
+clearBtn.addEventListener("click", () => {
+  newParents.forEach((newParent) => {
+    while (newParent.children.length > 1) {
+      console.log(newParent.children[newParent.children.length - 1]);
+      oldParent.appendChild(newParent.children[newParent.children.length - 1]);
+      // newParent.removeChild(newParent.lastChild);
+    }
+  });
+});
 //
 //
 //
 // FUNCTION: API and display data on html
 import FetchWrapper from "./fetch-wrapper.js";
-const key = "?apiKey=98bce4c26d4a425bb4183176fc75629f" + "&";
+const key = "?apiKey=5129b66ccd2e4b24bbf9a50c64043303" + "&";
 //main key ?apiKey=93d3b9134b1d4c44ae5f9dd1b9800b0d danneytrieu
+//backup key ?apiKey=98bce4c26d4a425bb4183176fc75629f hannah
 //backup key ?apiKey=9cb20095529e4d41a996938e730404a6 danneytrieuwork
 //backup key ?apiKey=a41414bac2184fb09f45f9c7fd1a3fc6 jlim
 //backup key ?apiKey=5129b66ccd2e4b24bbf9a50c64043303 phanuyenryna
-//backup key ?apiKey=98bce4c26d4a425bb4183176fc75629f hannah
 
 const API = new FetchWrapper("https://api.spoonacular.com/");
 const generateMeals = async () => {
@@ -198,15 +192,3 @@ const generateMeals = async () => {
   });
 };
 TODO: generateMeals();
-//
-//
-//
-//
-//
-//
-
-//
-//
-//
-//
-//
