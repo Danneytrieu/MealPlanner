@@ -67,7 +67,7 @@
               type="radio"
               id="input-gender"
               name="input-gender"
-              value="Male"
+              value="5"
             /><span>Male</span>
           </div>
           <div class="radio-wrap">
@@ -75,7 +75,7 @@
               type="radio"
               id="input-gender"
               name="input-gender"
-              value="Female"
+              value="-161"
             /><span>Female</span>
           </div>
         </div>
@@ -100,9 +100,9 @@
         <!-- goal -->
         <select class="style" name="goal" id="input-goal">
           <option  value="">Select Your Goal</option>
-          <option value="1%">Maintain Current Weight</option>
-          <option value="20%">Lose Weight</option>
-          <option value="20%">Gain Weight</option>
+          <option value="*1%">Maintain Current Weight</option>
+          <option value="/20%">Lose Weight</option>
+          <option value="*20%">Gain Weight</option>
         </select>
 
         <!-- activities -->
@@ -148,22 +148,22 @@
           <!-- single value -->
           <div class="value-single calories">
             <p class="value-title">Calories</p>
-            <p class="value odometer">1991</p>
+            <p id="recommended-calories" class="value odometer">1991</p>
           </div>
           <!-- single value -->
           <div class="value-single protein">
             <p class="value-title">Protein</p>
-            <p class="value value-1">50g</p>
+            <p id="recommended-protein" class="value value-1">50</p>
           </div>
           <!-- single value -->
           <div class="value-single carbs">
             <p class="value-title">Carbs</p>
-            <p class="value value-2">50g</p>
+            <p id="recommended-carbs" class="value value-2">50</p>
           </div>
           <!-- single value -->
           <div class="value-single fat">
             <p class="value-title">Fat</p>
-            <p class="value value-3">50g</p>
+            <p id="recommended-fat" class="value value-3">50</p>
           </div>
         </article>
       </section>
@@ -229,3 +229,4 @@
     <script type="module" src="main.js"></script>
   </body>
 </html>
+

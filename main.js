@@ -50,6 +50,52 @@ randomBtn.addEventListener("click", () => {
 //
 //
 //
+let calculatedKcal = 0;
+// continue btn
+const submitBtn = document.querySelector("#submit-btn");
+submitBtn.addEventListener("click", () => {
+  calculatedKcal = Math.floor(
+    (10 * document.querySelector("#input-weight").value +
+      6.25 * document.querySelector("#input-height").value -
+      5 * document.querySelector("#input-age").value +
+      document.querySelector("#input-gender").value) *
+      document.querySelector("#input-active").value
+  );
+  //
+  document.querySelector("#recommended-calories").textContent = calculatedKcal;
+  //
+  const fat = document.querySelector("#recommended-fat");
+  fat.textContent = `${Math.floor((calculatedKcal * 0.3) / 9)} g`;
+  //
+  const protein = document.querySelector("#recommended-protein");
+  protein.textContent = `${Math.floor((calculatedKcal * 0.3) / 4)} g`;
+  //
+  const carbs = document.querySelector("#recommended-carbs");
+  carbs.textContent = `${Math.floor((calculatedKcal * 0.4) / 4)} g`;
+
+  formContainer.remove();
+  generateMeals();
+});
+
+// For men: 10 x weight (kg) + 6.25 x height (cm) – 5 x age (y) + 5 (kcal / day)
+// For women: 10 x weight (kg) + 6.25 x height (cm) – 5 x age (y) -161 (kcal / day)
+
+//  Then, this BMR count is multiplied, depending on your activity level:
+// Sedentary = 1.2
+// Lightly active = 1.375
+// Moderately active = 1.550
+// Very active = 1.725
+// Extra active = 1.9
+
+// The calorie count is then adjusted based on your goal:
+// Weight loss: Reduce by 10-20%
+// Weight gain: Add 10%-20%
+// Weight maintenance: Unchanged
+
+// Weight loss: 40/40/20 (carbohydrates/protein/fats)
+// Weight gain: 40/30/30
+// Weight maintenance: 40/30/30
+
 // FUNCTION: API and display data on html
 import FetchWrapper from "./fetch-wrapper.js";
 const key = "?apiKey=9cb20095529e4d41a996938e730404a6" + "&";
@@ -61,10 +107,9 @@ const key = "?apiKey=9cb20095529e4d41a996938e730404a6" + "&";
 
 // FIXME:
 const form = document.querySelector("#form");
-const inputKcal = document.querySelector("#input-kcal");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  generateMeals(inputKcal.value);
+  generateMeals(calculatedKcal);
 });
 
 const API = new FetchWrapper("https://api.spoonacular.com/");
@@ -74,7 +119,6 @@ const generateMeals = async (kcal) => {
     //this endpoint allow to collect datas base on macro nutrients value
     `recipes/findByNutrients${key}?maxCalories=${kcal}&maxCarbs=30&maxProtein=70&maxFat=30&number=31&random=true&limitLicense=true`
   );
-  console.log(kcal);
   let card = "";
   //inject user's info: id (use to retrieve detail), image, title, calories, carbs, protein, fat
   datas.map((data) => {
