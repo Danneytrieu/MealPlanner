@@ -1,35 +1,58 @@
-// FUNCTION: Hide/Show setting buttons
 const settingBtn = document.querySelector("#setting-btn");
 const buttons = document.querySelectorAll(".nav .button");
 const clearBtn = document.querySelector(".btn-1");
-const saveBtn = document.querySelector(".btn-2");
 const randomBtn = document.querySelector(".btn-3");
-const myCanvas = document.querySelector("#canvas");
 const newParents = document.querySelectorAll(".new-parent");
 const oldParent = document.querySelector(".old-parent");
 
+// FUNCTION: Hide/Show setting buttons
 // Toggle show classlist to all setting's buttons
 buttons.forEach((button) => {
   settingBtn.addEventListener("click", (e) => {
     button.classList.toggle("show");
   });
 });
-// FUNCTION: Clear table
-clearBtn.addEventListener("click", () => {
+// FUNCTION: Clear button remove items table and move items to oldparent list
+const moveItemsToOldParent = function () {
+  clearBtn.addEventListener("click", () => {
+    newParents.forEach((newParent) => {
+      while (newParent.children.length > 1) {
+        oldParent.appendChild(
+          newParent.children[newParent.children.length - 1]
+        );
+      }
+    });
+  });
+};
+moveItemsToOldParent();
+// FUNCTION: Move items into Weekly table
+const moveItemsToNewParents = function () {
   newParents.forEach((newParent) => {
-    while (newParent.children.length > 1) {
-      console.log(newParent.children[newParent.children.length - 1]);
-      oldParent.appendChild(newParent.children[newParent.children.length - 1]);
-      // newParent.removeChild(newParent.lastChild);
+    while (newParent.children.length <= 3) {
+      newParent.appendChild(oldParent.children[0]);
     }
   });
+};
+// FUNCTION: Random button
+randomBtn.addEventListener("click", () => {
+  newParents.forEach((newParent) => {
+    if (newParent.childElementCount <= 4) {
+      while (newParent.children.length > 1) {
+        oldParent.appendChild(
+          newParent.children[newParent.children.length - 1]
+        );
+      }
+    }
+    moveItemsToNewParents()
+  });
 });
+
 //
 //
 //
 // FUNCTION: API and display data on html
 import FetchWrapper from "./fetch-wrapper.js";
-const key = "?apiKey=5129b66ccd2e4b24bbf9a50c64043303" + "&";
+const key = "?apiKey=a41414bac2184fb09f45f9c7fd1a3fc6" + "&";
 //main key ?apiKey=93d3b9134b1d4c44ae5f9dd1b9800b0d danneytrieu
 //backup key ?apiKey=98bce4c26d4a425bb4183176fc75629f hannah
 //backup key ?apiKey=9cb20095529e4d41a996938e730404a6 danneytrieuwork
@@ -77,16 +100,7 @@ const generateMeals = async () => {
   });
   document.querySelector("#list").innerHTML = card;
 
-  // FUNCTION: Move items into Weekly table
-  const oldParent = document.querySelector(".old-parent");
-  const newParents = document.querySelectorAll(".new-parent");
-
-  newParents.forEach((newParent) => {
-    while (newParent.children.length <= 3) {
-      newParent.appendChild(oldParent.children[0]);
-    }
-  });
-
+  moveItemsToNewParents();
   //
   //
   //
@@ -144,6 +158,7 @@ const generateMeals = async () => {
     });
     // Fire event for leave
     list.addEventListener("dragleave", function (e) {
+      e.preventDefault();
       e.currentTarget.style.border = "";
       e.currentTarget.style.background = "";
     });
