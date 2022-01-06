@@ -100,7 +100,7 @@ submitBtn.addEventListener("click", () => {
 
 // FUNCTION: API and display data on html
 import FetchWrapper from "./fetch-wrapper.js";
-const key = "?apiKey=9cb20095529e4d41a996938e730404a6";
+const key = "?apiKey=98bce4c26d4a425bb4183176fc75629f";
 //main key ?apiKey=93d3b9134b1d4c44ae5f9dd1b9800b0d danneytrieu
 //backup key ?apiKey=98bce4c26d4a425bb4183176fc75629f hannah
 //backup key ?apiKey=9cb20095529e4d41a996938e730404a6 danneytrieuwork
@@ -285,4 +285,7 @@ skipBtn.addEventListener("click", () => {
   generateMeals(2000);
 });
 
-
+window.onload = function () {
+  //hide the preloader
+  document.querySelector("#preloader").style.display = "none";
+};
