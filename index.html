@@ -21,7 +21,6 @@
   </head>
   <body>
     <div id="form-container">
-      
       <!-- slideshow -->
       <section id="slide-show">
         <div class="slideshow-container">
@@ -50,7 +49,9 @@
       <!-- end slideshow -->
 
       <form id="form">
-        <h1 id="form-title">“The first wealth is health.” – Ralph Waldo Emerson</h1>
+        <h1 id="form-title">
+          “The first wealth is health.” – Ralph Waldo Emerson
+        </h1>
         <!-- age -->
         <input
           class="style"
@@ -58,12 +59,13 @@
           id="input-age"
           name="input-age"
           placeholder="Age"
-          value=""
+          value="30"
         />
         <!-- gender -->
         <div class="btn-wrap style">
           <div class="radio-wrap">
             <input
+              checked="checked"
               type="radio"
               id="input-gender"
               name="input-gender"
@@ -86,7 +88,7 @@
           placeholder="Height (cm)"
           id="input-height"
           name="input-height"
-          value=""
+          value="175"
         />
         <!-- weight -->
         <input
@@ -95,12 +97,14 @@
           placeholder="Weight (kg)"
           id="input-weight"
           name="input-weight"
-          value=""
+          value="75"
         />
         <!-- goal -->
         <select class="style" name="goal" id="input-goal">
-          <option  value="">Select Your Goal</option>
-          <option value="*1%">Maintain Current Weight</option>
+          <option value="">Select Your Goal</option>
+          <option selected="selected" value="*1%">
+            Maintain Current Weight
+          </option>
           <option value="/20%">Lose Weight</option>
           <option value="*20%">Gain Weight</option>
         </select>
@@ -108,7 +112,7 @@
         <!-- activities -->
         <select class="style" name="activitities" id="input-active">
           <option value="">Select Your Active Level</option>
-          <option value="1.2">
+          <option selected="selected" value="1.2">
             Sedentary (Little or no exercise)
           </option>
           <option value="1.375">
@@ -129,7 +133,7 @@
         <!-- submit btn -->
         <input id="submit-btn" type="submit" value="Continue" />
         <!-- skip btn -->
-        <button id="skip-btn">Skip</button>
+        <button id="skip-btn">Skip (random plan)</button>
       </form>
     </div>
 
@@ -148,22 +152,22 @@
           <!-- single value -->
           <div class="value-single calories">
             <p class="value-title">Calories</p>
-            <p id="recommended-calories" class="value odometer">1991</p>
+            <p id="recommended-calories" class="value odometer">2000</p>
           </div>
           <!-- single value -->
           <div class="value-single protein">
             <p class="value-title">Protein</p>
-            <p id="recommended-protein" class="value value-1">50</p>
+            <p id="recommended-protein" class="value value-1">150</p>
           </div>
           <!-- single value -->
           <div class="value-single carbs">
             <p class="value-title">Carbs</p>
-            <p id="recommended-carbs" class="value value-2">50</p>
+            <p id="recommended-carbs" class="value value-2">200</p>
           </div>
           <!-- single value -->
           <div class="value-single fat">
             <p class="value-title">Fat</p>
-            <p id="recommended-fat" class="value value-3">50</p>
+            <p id="recommended-fat" class="value value-3">150</p>
           </div>
         </article>
       </section>
@@ -186,7 +190,6 @@
         </select> -->
         <!-- Lists -->
         <ul id="list" class="old-parent"></ul>
-        <button class="btn-load-more">LOAD MORE</button>
       </aside>
       <!-- TABLE -->
       <section class="table background" id="capture">
@@ -229,4 +232,3 @@
     <script type="module" src="main.js"></script>
   </body>
 </html>
-

@@ -135,8 +135,10 @@ body {
   cursor: pointer;
   transition: all 0.2s linear;
   opacity: 0;
+  pointer-events: none;
 }
 .nav button.show {
+  pointer-events: all;
   opacity: 1;
 }
 .btn-1:hover {
@@ -593,7 +595,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  color: rgba(128, 128, 128, 0.493);
+  color: var(--darkgrey);
   font-size: 1.2rem;
 }
 span {
@@ -604,9 +606,6 @@ span {
 }
 
 @media only screen and (max-width: 1000px) {
-  body {
-    background-color: lightblue;
-  }
   #slide-show {
     display: none;
   }
