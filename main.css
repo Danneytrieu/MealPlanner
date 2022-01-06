@@ -24,7 +24,7 @@ body {
   padding: 0 30px;
   display: grid;
   grid-column-gap: 20px;
-  grid-template-columns: 200px 550px 1.5fr;
+  grid-template-columns: 165px 550px 1.5fr;
   grid-template-rows: 0.8fr 2fr 0.4fr;
   grid-template-areas:
     "logo nutrition nav"
@@ -164,7 +164,9 @@ body {
   flex-direction: column;
   overflow-x: scroll;
 }
-
+.old-parent{
+  align-self: center;
+}
 #meal-type {
   background-color: #f9f9f9;
   color: var(--grey);
@@ -187,7 +189,7 @@ body {
 .list-item {
   display: flex;
   height: 90px;
-  max-width: 160px;
+  max-width: 150px;
   margin: 10px;
   border-radius: 6px;
   cursor: pointer;
@@ -694,6 +696,6 @@ span {
       align-self: center;
     }
   .container{
-    
+
   }
 }
