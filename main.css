@@ -628,5 +628,6 @@ span {
   #form {
     padding: 5%;
     width: 70%;
+    align-self: center;
   }
 }
