@@ -153,7 +153,7 @@ const generateMeals = async (calories) => {
           <!-- end single card  -->`;
   });
   document.querySelector("#list").innerHTML = card;
-
+  
   moveItemsToNewParents();
   //
   //
