@@ -683,6 +683,11 @@ span {
   .lists{
 
   }
+  #slide-show-title{
+  transform: translateY(20%);
+        font-size: 5rem;
+
+  }
 }
 
 
