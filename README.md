@@ -1,6 +1,7 @@
 # MealPlanner
 
-ℎ𝑡𝑡𝑝𝑠://𝑎𝑝𝑖𝑚𝑒𝑎𝑙𝑝𝑙𝑎𝑛𝑛𝑒𝑟.𝑛𝑒𝑡𝑙𝑖𝑓𝑦.𝑎𝑝𝑝
+Live: https://apimealplanner.netlify.app/
+
 𝐖𝐡𝐚𝐭 𝐝𝐢𝐝 𝐈 𝐥𝐞𝐚𝐫𝐧?
 1. Work with Spoonacular 's API documentation
 2. Learn to fetch data and create my-own fetch wrapper
